@@ -25,3 +25,23 @@
 #container a {
   text-decoration: none;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #8c8c8c;
+}
+
+img {
+  border-radius: 50%;
+}
+

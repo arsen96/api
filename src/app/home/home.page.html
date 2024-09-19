@@ -1,20 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>api</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="standings.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Rang</th>
+          <th>Équipe</th>
+          <th>Logo</th>
+          <th>Points</th>
+          <th>Différence de Buts</th>
+          <th>Forme</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of standings">
+          <td>{{ team?.rank }}</td>
+          <td>{{ team.team.name }}</td>
+          <td><img [src]="team.team.logo"  width="30"></td>
+          <td>{{ team.points }}</td>
+          <td>{{ team.goalsDiff }}</td>
+          <td>{{ team.form }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  
+  <div *ngIf="standings.length === 0">
+    <p>Aucun classement disponible.</p>
+  </div>
+  
 </ion-content>
